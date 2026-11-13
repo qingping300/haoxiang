@@ -1,0 +1,20 @@
+
+        .ui-jqgrid tr.jqgrow td {
+            white-space: normal !important;
+            height: auto;
+            vertical-align: text-top;
+            padding-top: 2px;
+        }
+
+        a {
+            color: #1baeae;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+
+        a:hover {
+            color: white;
+            background-color: #1baeae;
+        }
+    
