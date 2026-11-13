@@ -17,6 +17,7 @@ import com.haoxiang.mall.core.service.*;
 import com.haoxiang.mall.event.OrderEvent;
 import com.haoxiang.mall.exception.BusinessException;
 import com.haoxiang.mall.redis.RedisCache;
+import com.haoxiang.mall.redis.RedisRateLimiter;
 import com.haoxiang.mall.task.TaskService;
 import com.haoxiang.mall.util.NumberUtil;
 import org.springframework.amqp.core.Message;
@@ -59,6 +60,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private TaskService taskService;
 
     private RedisCache redisCache;
+
+    private RedisRateLimiter redisRateLimiter;
 
     private ApplicationEventPublisher applicationEventPublisher;
     private RabbitTemplate rabbitTemplate;
@@ -160,10 +163,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     private Seckill seckillSaveOrderCheck(Long seckillSuccessId, MallUserVO userVO, Date now) {
         SeckillSuccess seckillSuccess = seckillSuccessService.getById(seckillSuccessId);
-        if (!seckillSuccess.getUserId().equals(userVO.getUserId())) {
+        if (seckillSuccess == null || userVO == null || !seckillSuccess.getUserId().equals(userVO.getUserId())) {
             throw new BusinessException("当前登陆用户与抢购秒杀商品的用户不匹配");
         }
         Long seckillId = seckillSuccess.getSeckillId();
+        // 下单入口按用户滑动窗口和活动共享令牌桶限流。
+        redisRateLimiter.submission(userVO.getUserId(), seckillId);
         Seckill seckill = redisCache.getCacheObject(Constants.SECKILL_KEY + seckillId);
         if (seckill == null) {
             seckill = seckillService.getById(seckillId);

@@ -123,12 +123,14 @@ public class OrderListener implements ApplicationListener<OrderEvent> {
             }
             // 如果使用了优惠卷，则更新优惠卷状态
             if (couponUserId != null) {
-                CouponUser couponUser = new CouponUser();
-                couponUser.setCouponUserId(couponUserId);
+                CouponUser couponUser = couponUserService.getById(couponUserId);
+                if (couponUser == null || !mallUserVO.getUserId().equals(couponUser.getUserId()) || couponUser.getStatus() != 0) {
+                    throw new BusinessException("优惠券不可使用");
+                }
                 couponUser.setStatus((byte) 1);
                 couponUser.setUsedTime(new Date());
                 couponUser.setOrderId(order.getOrderId());
-                couponUserService.updateById(couponUser);
+                if (!couponUserService.updateById(couponUser)) throw new BusinessException("优惠券状态已发生变化");
             }
             platformTransactionManager.commit(transaction);
         } catch (RuntimeException e) {

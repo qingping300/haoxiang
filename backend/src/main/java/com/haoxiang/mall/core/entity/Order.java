@@ -44,4 +44,7 @@ public class Order implements Serializable {
 
     private Date updateTime;
 
+    /** 更新时检查并递增的版本号。 */
+    @com.baomidou.mybatisplus.annotation.Version
+    private Long version;
 }

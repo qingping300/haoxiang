@@ -3,7 +3,7 @@ package com.haoxiang.mall.core.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.spring.service.impl.ServiceImpl;
-import com.google.common.util.concurrent.RateLimiter;
+import com.haoxiang.mall.redis.RedisRateLimiter;
 import lombok.AllArgsConstructor;
 import com.haoxiang.mall.constant.Constants;
 import com.haoxiang.mall.core.mapper.SeckillMapper;
@@ -27,8 +27,7 @@ import java.util.concurrent.TimeUnit;
 @AllArgsConstructor
 public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> implements SeckillService {
 
-    // 使用令牌桶RateLimiter 限流
-    private static final RateLimiter RATE_LIMITER = RateLimiter.create(20);
+    private RedisRateLimiter redisRateLimiter;
 
     private SeckillMapper seckillMapper;
     private SeckillSuccessService seckillSuccessService;
@@ -79,11 +78,8 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Seckill> impl
      * @return SeckillSuccessVO
      */
     public SeckillSuccessVO executeSeckillFinal(Long seckillId, MallUserVO userVO) {
-        // 判断能否在500毫秒内得到令牌，如果不能则立即返回false，不会阻塞程序
-        if (!RATE_LIMITER.tryAcquire(500, TimeUnit.MILLISECONDS)) {
-            // System.out.println("短期无法获取令牌，真不幸，排队也瞎排");
-            throw new BusinessException("秒杀失败");
-        }
+        // 资格入口使用实例级令牌桶保护，未取到令牌立即返回。
+        redisRateLimiter.local();
         // 判断用户是否购买过秒杀商品
         if (redisCache.containsCacheSet(Constants.SECKILL_SUCCESS_USER_ID + seckillId, userVO.getUserId())) {
             throw new BusinessException("您已经购买过秒杀商品，请勿重复购买");

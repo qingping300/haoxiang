@@ -47,6 +47,8 @@ public class CouponUserExpireTask {
             if (CollectionUtils.isNotEmpty(couponUserIdList)) {
                 couponUserService.lambdaUpdate()
                         .set(CouponUser::getStatus, 2)
+                        .setSql("version = version + 1")
+                        .eq(CouponUser::getStatus, 0)
                         .in(CouponUser::getCouponUserId, couponUserIdList)
                         .update();
                 log.info("更新couponUserIdList:{}", couponUserIdList);

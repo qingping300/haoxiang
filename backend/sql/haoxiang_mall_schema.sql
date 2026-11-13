@@ -73,6 +73,7 @@ CREATE TABLE IF NOT EXISTS `haoxiang_mall_coupon_user`  (
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `is_deleted` tinyint NULL DEFAULT 0 COMMENT '逻辑删除',
+  `version` bigint NOT NULL DEFAULT 0 COMMENT '乐观锁版本号',
   PRIMARY KEY (`coupon_user_id`) USING BTREE,
   INDEX `user_coupin_index`(`user_id`, `coupon_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '优惠券用户使用表' ROW_FORMAT = DYNAMIC;
@@ -149,6 +150,7 @@ CREATE TABLE IF NOT EXISTS `haoxiang_mall_order`  (
   `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT '删除标识字段(0-未删除 1-已删除)',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最新修改时间',
+  `version` bigint NOT NULL DEFAULT 0 COMMENT '乐观锁版本号',
   PRIMARY KEY (`order_id`) USING BTREE,
   UNIQUE INDEX `order_no_uqi`(`order_no`) USING BTREE,
   INDEX `user_id_index`(`user_id`) USING BTREE,

@@ -65,6 +65,7 @@ class MallPayControllerTest {
         UpdateChainWrapper<Order> update = mock(UpdateChainWrapper.class, RETURNS_SELF);
         when(orderService.update()).thenReturn(update);
         doReturn(update).when(update).set(anyString(), any());
+        doReturn(update).when(update).setSql(anyString());
         doReturn(update).when(update).eq(anyString(), any());
         when(update.update()).thenReturn(true);
 
@@ -75,6 +76,7 @@ class MallPayControllerTest {
         verify(update).set("pay_type", 1);
         verify(update).set("pay_status", 1);
         verify(update).eq("order_id", 42L);
+        verify(update).eq("version", 0L);
         verify(update).eq("order_status", 0);
         verify(update).eq("pay_status", 0);
         verify(update).update();
@@ -83,6 +85,7 @@ class MallPayControllerTest {
     private Order pendingOrder() {
         Order order = new Order();
         order.setOrderId(42L);
+        order.setVersion(0L);
         order.setOrderNo("HX-1");
         order.setUserId(7L);
         order.setOrderStatus((byte) 0);

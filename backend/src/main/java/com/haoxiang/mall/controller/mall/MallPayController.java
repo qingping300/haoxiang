@@ -73,7 +73,9 @@ public class MallPayController extends BaseController {
                 .set("pay_type", PayTypeEnum.PASSWORD_VERIFY.getPayType())
                 .set("pay_time", now)
                 .set("update_time", now)
+                .setSql("version = version + 1")
                 .eq("order_id", order.getOrderId())
+                .eq("version", order.getVersion())
                 .eq("order_status", OrderStatusEnum.ORDER_PRE_PAY.getOrderStatus())
                 .eq("pay_status", PayStatusEnum.PAY_ING.getPayStatus())
                 .update();

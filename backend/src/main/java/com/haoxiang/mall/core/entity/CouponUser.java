@@ -37,4 +37,7 @@ public class CouponUser implements Serializable {
     private Date updateTime;
 
     private Byte isDeleted;
+    /** 更新时检查并递增的版本号。 */
+    @com.baomidou.mybatisplus.annotation.Version
+    private Long version;
 }

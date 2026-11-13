@@ -139,7 +139,7 @@ public class CouponServiceImpl extends ServiceImpl<CouponMapper, Coupon> impleme
         for (CouponUser couponUser : couponUserList) {
             couponUser.setStatus((byte) 0);
             couponUser.setUpdateTime(new Date());
-            couponUserMapper.updateById(couponUser);
+            if (couponUserMapper.updateById(couponUser) != 1) throw new com.haoxiang.mall.exception.BusinessException("优惠券状态已发生变化");
         }
     }
 

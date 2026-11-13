@@ -60,7 +60,7 @@
 | 持久层 | MyBatis-Plus 3.5.18、MySQL 8.0 | 数据访问、分页与业务数据存储 |
 | 缓存与会话 | Redis Stack、Spring Session Redis、Lettuce、Jedis | 数据缓存、共享会话、商品搜索与秒杀相关状态 |
 | 异步处理 | RabbitMQ、Spring AMQP | 秒杀订单消息投递与异步消费 |
-| 并发控制 | Redis Lua、Guava | 秒杀库存预扣与请求限流 |
+| 并发控制 | Redis Lua、Guava | 秒杀库存预扣、分层限流与版本号乐观锁 |
 | 前端 | Vue 3、Vue Router、Vite 7 | 商城和管理端页面 |
 | 部署 | Docker Compose、Nginx | 本地多服务启动、静态资源与请求代理 |
 
@@ -69,7 +69,8 @@
 - **用户会话：** 登录状态由 Spring Session 存入 Redis，拦截器根据会话校验用户身份。
 - **商品检索：** 支持 Redis Search 索引查询及 MySQL 查询回退，支持关键字和价格排序。
 - **商品详情缓存：** 使用短期空值缓存、按商品互斥重建、随机 TTL 与失效代次，降低重复回源与集中到期的影响。
-- **秒杀下单：** 资格检查后，在订单提交阶段使用 Redis Lua 预扣，再通过 RabbitMQ 异步处理订单；数据库通过库存条件更新约束扣减。
+- **秒杀下单：** 使用 Guava 进行单实例保护，在提交入口使用 Redis 滑动窗口和共享令牌桶；资格检查后通过 Redis Lua 预扣库存、RabbitMQ 异步处理订单，数据库通过条件更新约束扣减。
+- **乐观锁：** 订单和用户优惠券使用 MyBatis-Plus 版本号乐观锁；支付的自定义条件更新显式检查并递增版本。
 - **订单关闭：** 当前项目使用 `DelayQueue` 触发未支付订单超时处理，相关取消与补偿流程仍在持续完善。
 
 ## 快速开始
@@ -110,6 +111,12 @@ docker compose --env-file .env.infra.local -f compose.infra.yml exec -T mysql sh
 
 演示数据的后台账号为 `admin`，密码为 `123456`，仅供本地测试。导入后可在后台商品管理中使用“同步 RS”构建 Redis Search 商品索引。
 
+### 限流参数
+
+秒杀资格入口使用单实例 Guava 令牌桶；提交入口依次执行本地令牌桶、用户滑动窗口、全局 Redis 令牌桶和活动 Redis 令牌桶。默认单实例 20 令牌/秒，用户每活动连续 10 秒最多 5 次提交，共享桶每秒补充 20 个令牌、容量 20；这些只是本地联调初始值，不是实测容量。可通过 `haoxiang.stability` 配置项调整，Redis 不可用时秒杀提交返回服务暂不可用。
+### 已有数据库升级
+
+从旧版本升级时，先备份数据库并停止所有后端写入，再对现有 `haoxiang_mall` 库执行 `backend/sql/migration/V001__add_optimistic_versions.sql`。该脚本仅在版本列不存在时添加列；不要重跑初始化 SQL 覆盖已有数据。新建数据库已在建表脚本中包含版本列。
 ### 4. 构建并启动应用
 
 ```powershell

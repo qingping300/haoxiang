@@ -19,6 +19,7 @@ import com.haoxiang.mall.exception.BusinessException;
 import com.haoxiang.mall.util.MyBeanUtil;
 import com.haoxiang.mall.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
@@ -82,7 +83,8 @@ public class MallOrderManagerController extends BaseController {
             throw new BusinessException("当前订单无法更改");
 
         }
-        return R.result(orderService.updateById(order));
+        order.setVersion(order1.getVersion());
+        return R.result(orderService.updateById(order), "订单已发生变化，请刷新后重试");
     }
 
 
@@ -94,6 +96,7 @@ public class MallOrderManagerController extends BaseController {
      */
     @ResponseBody
     @PostMapping("checkDone")
+    @Transactional(rollbackFor = Exception.class)
     public R checkDone(@RequestBody List<Long> ids) {
         List<Long> updateOrderIds = new ArrayList<>();
         List<Order> orders = orderService.listByIds(ids);
@@ -104,11 +107,12 @@ public class MallOrderManagerController extends BaseController {
             }
             updateOrderIds.add(order.getOrderId());
         }
-        boolean update = orderService.update()
-                .set("order_status", OrderStatusEnum.OREDER_PACKAGED.getOrderStatus())
-                .in("order_id", updateOrderIds)
-                .update();
-        return R.result(update);
+        if (updateOrderIds.size() != ids.size()) throw new BusinessException("订单不存在或重复");
+        for (Order order : orders) {
+            order.setOrderStatus((byte) OrderStatusEnum.OREDER_PACKAGED.getOrderStatus());
+            if (!orderService.updateById(order)) throw new BusinessException("订单状态已发生变化，请刷新后重试");
+        }
+        return R.success();
     }
 
     /**
@@ -119,6 +123,7 @@ public class MallOrderManagerController extends BaseController {
      */
     @ResponseBody
     @PostMapping("checkOut")
+    @Transactional(rollbackFor = Exception.class)
     public R checkOut(@RequestBody List<Long> ids) {
         List<Long> updateOrderIds = new ArrayList<>();
         List<Order> orders = orderService.listByIds(ids);
@@ -129,11 +134,12 @@ public class MallOrderManagerController extends BaseController {
             }
             updateOrderIds.add(order.getOrderId());
         }
-        boolean update = orderService.update()
-                .set("order_status", OrderStatusEnum.OREDER_EXPRESS.getOrderStatus())
-                .in("order_id", updateOrderIds)
-                .update();
-        return R.result(update);
+        if (updateOrderIds.size() != ids.size()) throw new BusinessException("订单不存在或重复");
+        for (Order order : orders) {
+            order.setOrderStatus((byte) OrderStatusEnum.OREDER_EXPRESS.getOrderStatus());
+            if (!orderService.updateById(order)) throw new BusinessException("订单状态已发生变化，请刷新后重试");
+        }
+        return R.success();
     }
 
     /**
@@ -144,6 +150,7 @@ public class MallOrderManagerController extends BaseController {
      */
     @ResponseBody
     @PostMapping("close")
+    @Transactional(rollbackFor = Exception.class)
     public R close(@RequestBody List<Long> ids) {
         List<Long> updateOrderIds = new ArrayList<>();
         List<Order> orders = orderService.listByIds(ids);
@@ -157,11 +164,12 @@ public class MallOrderManagerController extends BaseController {
             }
             updateOrderIds.add(order.getOrderId());
         }
-        boolean update = orderService.update()
-                .set("order_status", OrderStatusEnum.ORDER_SUCCESS.getOrderStatus())
-                .in("order_id", updateOrderIds)
-                .update();
-        return R.result(update);
+        if (updateOrderIds.size() != ids.size()) throw new BusinessException("订单不存在或重复");
+        for (Order order : orders) {
+            order.setOrderStatus((byte) OrderStatusEnum.ORDER_SUCCESS.getOrderStatus());
+            if (!orderService.updateById(order)) throw new BusinessException("订单状态已发生变化，请刷新后重试");
+        }
+        return R.success();
     }
 
 }
