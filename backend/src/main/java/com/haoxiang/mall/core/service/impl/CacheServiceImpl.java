@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 /** 公共展示缓存：空值、随机 TTL、互斥重建、代次校验及有限回源。 */
 @Service
 public class CacheServiceImpl implements CacheService {
-    @Resource private StringRedisTemplate redis;
+    @Resource(name = "stringRedisTemplate") private StringRedisTemplate redis;
     @Resource private StabilityProperties config;
     private Semaphore permits;
     private static final DefaultRedisScript<Long> FILL=LuaScripts.load("cache_fill");
