@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="234" height="74" viewBox="0 0 234 74" role="img" aria-label="haoxiang">
+  <defs><linearGradient id="cart" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#6e8cff"/><stop offset="1" stop-color="#c35de1"/></linearGradient></defs>
+  <g fill="none" stroke="url(#cart)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18h7l5 29h30l6-22H21"/><path d="M28 52h28"/><circle cx="30" cy="59" r="2" fill="#8a78ee"/><circle cx="51" cy="59" r="2" fill="#8a78ee"/></g>
+  <text x="74" y="38" fill="#5aafa6" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700">haoxiang</text>
+  <text x="138" y="58" fill="#5aafa6" font-family="Arial, sans-serif" font-size="16" font-weight="700">mall</text>
+</svg>

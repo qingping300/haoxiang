@@ -1,0 +1,17 @@
+package com.haoxiang.mall.core.service;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.spring.service.IService;
+import com.haoxiang.mall.core.entity.Carousels;
+
+public interface CarouselsService extends IService<Carousels> {
+
+    /**
+     * 分页查询
+     * @param page 分页对象
+     * @param carousels 轮播图对象
+     * @return 分页数据
+     */
+    IPage<Carousels> selectPage(Page<Carousels> page, Carousels carousels);
+}

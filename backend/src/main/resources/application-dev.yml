@@ -1,0 +1,31 @@
+# 开发环境连接信息由环境变量提供，避免将账号和密码写入仓库。
+spring:
+  datasource:
+    url: ${HAOXIANG_DB_URL}
+    username: ${HAOXIANG_DB_USER}
+    password: ${HAOXIANG_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2     # 最小空闲连接数
+      connection-timeout: 30000     # 连接超时时间
+  data:
+    redis:
+      host: ${HAOXIANG_REDIS_HOST}
+      port: ${HAOXIANG_REDIS_PORT:6379}
+      database: ${HAOXIANG_REDIS_DATABASE:0}
+      password: ${HAOXIANG_REDIS_PASSWORD:}
+      timeout: 3s
+  rabbitmq:
+    host: ${HAOXIANG_RABBIT_HOST}
+    port: ${HAOXIANG_RABBIT_PORT:5672}
+    username: ${HAOXIANG_RABBIT_USER}
+    password: ${HAOXIANG_RABBIT_PASSWORD}
+    virtual-host: ${HAOXIANG_RABBIT_VHOST:/}
+    publisher-confirm-type: correlated  # 发布确认类型
+    publisher-returns: true  # 发布返回
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+

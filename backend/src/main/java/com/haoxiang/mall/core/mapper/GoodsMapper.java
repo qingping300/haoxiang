@@ -1,0 +1,26 @@
+package com.haoxiang.mall.core.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.haoxiang.mall.core.entity.Goods;
+import com.haoxiang.mall.core.entity.vo.GoodsVO;
+import com.haoxiang.mall.core.entity.vo.SearchObjVO;
+import com.haoxiang.mall.core.entity.vo.SearchPageGoodsVO;
+
+import java.util.List;
+
+public interface GoodsMapper extends BaseMapper<Goods> {
+    IPage<Goods> selectListPage(Page<Goods> page, Goods goods);
+
+    List<GoodsVO> selectGoodsListByIds(List<Long> ids);
+
+    List<GoodsVO> selectUpGoodsList();
+
+    IPage<Goods> findMallGoodsListBySearch(Page<SearchPageGoodsVO> page, SearchObjVO searchObjVO);
+
+    boolean addStock(Long goodsId, Integer number);
+
+    boolean reduceStock(Long goodsId, Integer number);
+
+}

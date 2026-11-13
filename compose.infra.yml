@@ -1,0 +1,80 @@
+services:
+  mysql:
+    image: m.daocloud.io/docker.io/library/mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${HAOXIANG_DB_ROOT_PASSWORD:?set the root password}
+      MYSQL_DATABASE: haoxiang_mall
+      MYSQL_USER: ${HAOXIANG_DB_USER:?set the application user}
+      MYSQL_PASSWORD: ${HAOXIANG_DB_PASSWORD:?set the application password}
+    ports:
+      - '127.0.0.1:23306:3306'
+    volumes:
+      - haoxiang_mysql:/var/lib/mysql
+      - ./backend/sql/haoxiang_mall_schema.sql:/docker-entrypoint-initdb.d/01-haoxiang-mall.sql:ro
+
+  redis:
+    image: m.daocloud.io/docker.io/redis/redis-stack-server:latest
+    restart: unless-stopped
+    environment:
+      REDIS_ARGS: '--requirepass ${HAOXIANG_REDIS_PASSWORD:?set the Redis password} --appendonly yes'
+    ports:
+      - '127.0.0.1:16379:6379'
+    volumes:
+      - haoxiang_redis:/data
+
+  rabbitmq:
+    image: m.daocloud.io/docker.io/library/rabbitmq:3-management
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${HAOXIANG_RABBIT_USER:?set a RabbitMQ user}
+      RABBITMQ_DEFAULT_PASS: ${HAOXIANG_RABBIT_PASSWORD:?set a RabbitMQ password}
+      RABBITMQ_DEFAULT_VHOST: /
+    ports:
+      - '127.0.0.1:5672:5672'
+      - '127.0.0.1:15672:15672'
+    volumes:
+      - haoxiang_rabbitmq:/var/lib/rabbitmq
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      HAOXIANG_DB_URL: jdbc:mysql://mysql:3306/haoxiang_mall?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      HAOXIANG_DB_USER: ${HAOXIANG_DB_USER:?set the application user}
+      HAOXIANG_DB_PASSWORD: ${HAOXIANG_DB_PASSWORD:?set the application password}
+      HAOXIANG_REDIS_HOST: redis
+      HAOXIANG_REDIS_PORT: 6379
+      HAOXIANG_REDIS_PASSWORD: ${HAOXIANG_REDIS_PASSWORD:?set the Redis password}
+      HAOXIANG_RABBIT_HOST: rabbitmq
+      HAOXIANG_RABBIT_PORT: 5672
+      HAOXIANG_RABBIT_USER: ${HAOXIANG_RABBIT_USER:?set a RabbitMQ user}
+      HAOXIANG_RABBIT_PASSWORD: ${HAOXIANG_RABBIT_PASSWORD:?set a RabbitMQ password}
+      HAOXIANG_UPLOAD_DIR: /data/uploads
+      HAOXIANG_FRONTEND_URL: http://127.0.0.1:8080/
+    ports:
+      - '127.0.0.1:8081:8081'
+    volumes:
+      - haoxiang_uploads:/data/uploads
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - '127.0.0.1:80:80'
+      - '127.0.0.1:8080:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  haoxiang_mysql:
+  haoxiang_redis:
+  haoxiang_rabbitmq:
+  haoxiang_uploads:

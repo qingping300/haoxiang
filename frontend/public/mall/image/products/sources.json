@@ -1,0 +1,362 @@
+[
+  {
+    "id": 20001,
+    "name": "Apple iPhone 18 Pro",
+    "file": "20001.jpg",
+    "sourcePage": "https://www.idealo.it/confronta-prezzi/214024871/apple-iphone-18-pro-1tb-borgogna.html",
+    "imageUrl": "https://cdn.idealo.com/folder/Product/214024/8/214024871/s10_produktbild_max/apple-iphone-18-pro-1tb-burgundy.jpg",
+    "width": 1253,
+    "height": 1500,
+    "bytes": 418462
+  },
+  {
+    "id": 20002,
+    "name": "Apple iPhone 18 Pro Max",
+    "file": "20002.png",
+    "sourcePage": "https://media2.nbb-cdn.de/images/products/iPhone_18_Pro_Max_Silver_2-up_Screen__USEN.png",
+    "imageUrl": "https://media2.nbb-cdn.de/images/products/iPhone_18_Pro_Max_Silver_2-up_Screen__USEN.png",
+    "width": 1023,
+    "height": 1250,
+    "bytes": 1240362
+  },
+  {
+    "id": 20003,
+    "name": "Apple iPhone 17e",
+    "file": "20003.png",
+    "sourcePage": "https://www.plaisio.gr/product/tilefonia-tablet-wearables/tilefona/smartphones/apple-iphone-17e-256gb-5g-pink_5056691",
+    "imageUrl": "https://res.plaisio.gr/c_limit%2Cf_auto%2Cw_2048%2Cq_75/d_Shared%3ANotFound%3Aproduct-notfound.jpg/Shared/Product/Images/5056691.jpg",
+    "width": 1500,
+    "height": 1500,
+    "bytes": 384250
+  },
+  {
+    "id": 20004,
+    "name": "Samsung Galaxy S26 Ultra",
+    "file": "20004.png",
+    "sourcePage": "https://kontakt.az/samsung-galaxy-s26-ultra-sm-s948b-12-256-gb-white?srsltid=AfmBOopsJryjkRjQdhjmYILj-Z5Yl_TnU58XRTPP00AdTIgbm4yb-UDN",
+    "imageUrl": "https://kontakt.az/media/catalog/product/cache/fbd42596869cc4deb59edfc1ed742a64/t/m/tm-dg-sbp-1105-sm-4072_1.png",
+    "width": 608,
+    "height": 608,
+    "bytes": 215813
+  },
+  {
+    "id": 20005,
+    "name": "Samsung Galaxy S26+",
+    "file": "20005.jpg",
+    "sourcePage": "https://tehno-mag.hr/samsung-mobitel-galaxy-s26-12gb-256gb-sm-s947bzwdeue-bijeli-proizvod-34514/",
+    "imageUrl": "https://tehno-mag.hr/upload/catalog/product/34514/8806097828150-samsung-mobitel-galaxy-s26-12gb-256g_699db6e878840.jpg",
+    "width": 2000,
+    "height": 2000,
+    "bytes": 1177453
+  },
+  {
+    "id": 20006,
+    "name": "Samsung Galaxy S26",
+    "file": "20006.png",
+    "sourcePage": "https://biggeek.ru/catalog/samsung-galaxy-s26",
+    "imageUrl": "https://images.biggeek.ru/1/870/d073/36748-231uk-galaxy-s26-s942-578733-sm-s942bzwheub-550899233%402x.png",
+    "width": 870,
+    "height": 870,
+    "bytes": 387148
+  },
+  {
+    "id": 20007,
+    "name": "Xiaomi 17 Ultra",
+    "file": "20007.jpg",
+    "sourcePage": "https://goodmi.ru/xiaomi-17-ultra-16-1024gb-white/",
+    "imageUrl": "https://goodmi.ru/images/detailed/147/23_gi2r-wo.jpg",
+    "width": 1387,
+    "height": 1387,
+    "bytes": 182641
+  },
+  {
+    "id": 20008,
+    "name": "Xiaomi 17T Pro",
+    "file": "20008.png",
+    "sourcePage": "https://fptshop.com.vn/dien-thoai/xiaomi-17t-pro",
+    "imageUrl": "https://cdn2.fptshop.com.vn/unsafe/xiaomi_17t_pro_xanh_5_09c714c216.png",
+    "width": 800,
+    "height": 800,
+    "bytes": 620516
+  },
+  {
+    "id": 20009,
+    "name": "HONOR Magic8 Pro",
+    "file": "20009.png",
+    "sourcePage": "https://www.honor.com/cn/m/product/10086048644581.html",
+    "imageUrl": "https://hshop.honorfile.com/pimages/product/6936520882168/800_800_09CB70D1FEF0DB31ABAD19B5DBCF9B51FE628C4EF95EECEBmp.png",
+    "width": 800,
+    "height": 800,
+    "bytes": 722761
+  },
+  {
+    "id": 20010,
+    "name": "HUAWEI Pura 90s Pro Max",
+    "file": "20010.png",
+    "sourcePage": "https://consumer.huawei.com/my/offer/phones/pura90s-pro-max-buy/",
+    "imageUrl": "https://shop-cdn.huawei.com/my/pms/uomcdn/MYHW/pms/202607/gbom/6942711306399/800_800_F7A4F7FCDCC5D6C8404AD368E1E435F3mp.webp",
+    "width": 800,
+    "height": 800,
+    "bytes": 171598
+  },
+  {
+    "id": 20011,
+    "name": "HUAWEI Mate 80 Pro",
+    "file": "20011.png",
+    "sourcePage": "https://www.giztop.com/huawei-mate-80-pro.html",
+    "imageUrl": "https://www.giztop.com/media/catalog/product/cache/97cc1143d2e20f2b0c8ea91aaa12053c/h/u/huawei_mate_80_pro-.png",
+    "width": 700,
+    "height": 700,
+    "bytes": 985959
+  },
+  {
+    "id": 20012,
+    "name": "Apple MacBook Neo",
+    "file": "20012.png",
+    "sourcePage": "https://www.xdeal.co.uk/apple-macbook-neo-2026-with-a18-pro-chip-13inch-256gb-indigo",
+    "imageUrl": "https://www.xdeal.co.uk/image/cache/catalog/Apple/macbook-neo-indigo-uk-1-1200x1200.png",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 881080
+  },
+  {
+    "id": 20013,
+    "name": "Apple MacBook Air M5 13 inch",
+    "file": "20013.png",
+    "sourcePage": "https://www.viettablet.com/macbook-air-m5-13-inch-10-cpu-8-gpu-16gb-512gb",
+    "imageUrl": "https://cdn.viettablet.com/images/detailed/76/macbook-air-m5-13inch-1.png",
+    "width": 800,
+    "height": 800,
+    "bytes": 390944
+  },
+  {
+    "id": 20014,
+    "name": "Apple MacBook Air M5 15 inch",
+    "file": "20014.jpg",
+    "sourcePage": "https://ekb.hi-stores.ru/catalog/macbook/macbook_air/macbook-air-15-m5-2026/apple-macbook-air-15-m5-10c-cpu-10c-gpu-2026-16-512gb-ssd-midnight/",
+    "imageUrl": "https://ekb.hi-stores.ru/upload/iblock/a0b/nfd5weqm25fhc63g7vuzno53vv5cuk02.jpg",
+    "width": 1200,
+    "height": 1200,
+    "bytes": 89540
+  },
+  {
+    "id": 20015,
+    "name": "Apple MacBook Pro M5 Pro",
+    "file": "20015.png",
+    "sourcePage": "https://www.istudiosg.com/products/16-inch-macbook-pro-m5-pro-mgea4zp-a",
+    "imageUrl": "https://www.istudiosg.com/cdn/shop/files/IMG-19256315_m_jpeg_1_84e07ca4-8a8d-40e3-9c21-c05eb1e8a77b.jpg?v=1772558439",
+    "width": 4000,
+    "height": 4000,
+    "bytes": 718397
+  },
+  {
+    "id": 20016,
+    "name": "Apple MacBook Pro M5 Max",
+    "file": "20016.png",
+    "sourcePage": "https://estorejo.com/products/16-inch-macbook-pro-m5-max",
+    "imageUrl": "https://estorejo.com/cdn/shop/files/MacBook_Pro_16-in_Space_Black_Pure_Front_Screen__USEN.jpg?v=1774520229&width=2000",
+    "width": 2000,
+    "height": 1351,
+    "bytes": 257443
+  },
+  {
+    "id": 20017,
+    "name": "Samsung Galaxy Book6 Pro",
+    "file": "20017.png",
+    "sourcePage": "https://www.mediamarkt.de/de/product/_samsung-galaxy-book6-pro-16-zoll-intelr-coretm-ultra-7-356h-16-gb-1-tb-coretm-onboard-graphics-windows-11-home-3037454.html",
+    "imageUrl": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_171842122/fee_786_587_png",
+    "width": 786,
+    "height": 587,
+    "bytes": 58909
+  },
+  {
+    "id": 20018,
+    "name": "Apple iPad Air M4 11 inch",
+    "file": "20018.jpg",
+    "sourcePage": "https://www.jib.co.th/web/product/readProduct/84656/1418/Apple-iPad-Air-M4-11-inch-Wi-Fi---Cellular-128GB---Starlight",
+    "imageUrl": "https://www.jib.co.th/img_master/product/original/202604200854280000084656_1.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bytes": 108782
+  },
+  {
+    "id": 20019,
+    "name": "Apple iPad Air M4 13 inch",
+    "file": "20019.png",
+    "sourcePage": "https://ishop.istore.com.tw/products/13-ipad-air-2026-m4-wi-fi-cl-256gb",
+    "imageUrl": "https://img.shoplineapp.com/media/image_clips/69a6a680394729a674b3f146/original.jpg?1772529278=&owner_id=6821688636dc6a002e92f1da",
+    "width": 4000,
+    "height": 4000,
+    "bytes": 3383658
+  },
+  {
+    "id": 20020,
+    "name": "Apple AirPods 5",
+    "file": "20020.jpg",
+    "sourcePage": "https://www.apple.com.cn/newsroom/2026/09/get-ready-to-experience-iphone-18-pro-the-new-apple-watch-lineup-and-airpods-5/",
+    "imageUrl": "https://www.apple.com.cn/newsroom/images/2026/09/get-ready-to-experience-iphone-18-pro-the-new-apple-watch-lineup-and-airpods-5/article/Apple-AirPods-5_inline.jpg.large_2x.jpg",
+    "width": 1306,
+    "height": 1306,
+    "bytes": 34295
+  },
+  {
+    "id": 20021,
+    "name": "Samsung Galaxy Buds4 Pro",
+    "file": "20021.png",
+    "sourcePage": "https://www.expert-technomarkt.de/Kopfh%C3%B6rer/Samsung-Galaxy-Buds4-Pro-In-Ear-Bluetooth-Kopfh%C3%B6rer-kabellos-Wei%C3%9F-Wei%C3%9F.12940030818.html",
+    "imageUrl": "https://img.expert-technomarkt.de/5000x5000x80/z3/samsung-galaxy-buds4-pro-8806097985341-3.jpg",
+    "width": 2857,
+    "height": 1673,
+    "bytes": 389226
+  },
+  {
+    "id": 20022,
+    "name": "Samsung Galaxy Buds4",
+    "file": "20022.jpg",
+    "sourcePage": "https://precosnoparaguai.com.br/produto/fone-de-ouvido-samsung-galaxy-buds-4-sm-r540-bluetooth-white-69ed02f6ce819",
+    "imageUrl": "https://precosnoparaguai.s3.amazonaws.com/product_images/c4dd754b-86f5-4f1f-9b10-712dd6d96bda.jpg",
+    "width": 1000,
+    "height": 1000,
+    "bytes": 126962
+  },
+  {
+    "id": 20023,
+    "name": "Xiaomi Buds 6",
+    "file": "20023.jpg",
+    "sourcePage": "https://www.mi.com/jp/product/xiaomi-buds-6/",
+    "imageUrl": "https://i02.appmifile.com/mi-com-product/fly-birds/xiaomi-buds-6/pc/screen04-slide-pearl-white.jpg",
+    "width": 2000,
+    "height": 1436,
+    "bytes": 661449
+  },
+  {
+    "id": 20024,
+    "name": "Apple Watch Series 12",
+    "file": "20024.jpg",
+    "sourcePage": "https://www.apple.com/newsroom/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system/",
+    "imageUrl": "https://www.apple.com/newsroom/images/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system/tile/Apple-Watch-Series-12-2up-260909-lp.jpg.og.jpg?202610310036",
+    "width": 1200,
+    "height": 630,
+    "bytes": 96832
+  },
+  {
+    "id": 20025,
+    "name": "Apple Watch Ultra 4",
+    "file": "20025.jpg",
+    "sourcePage": "https://www.apple.com/au-edu/shop/buy-watch/apple-watch-ultra/49-mm-cellular-natural-titanium-translucent-grey-ocean-band",
+    "imageUrl": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MK7K4_VW_34FR%2Bwatch-case-49-titanium-natural-ultra4_VW_34FR%2Bwatch-face-49-ultra4_VW_34FR_GEO_AU?.v=dDhhaVhCdytabStHaDlWdWFsell5cVZGV0ZiSDllNHd6YWJwdVV2Z2xBWm9SMGMvQkpTNDBiSVZSVExOcXdwL0dFNlAvcWROaC9jeFhSWncwT2doWnpkVlV6VGhvNy9VLzFYOUdBNm1QejRRbHU2a0pYOFdrVTltajVUSFU0b0VlUDdOSkxEWFNrTmxhYVpqWnJRWFk5ZlRKZlByNlJFcGt4Z28zQjdMSnZVZ3NOQTJ0bHNuSFBFQUFKSTQ3OERjRkJUUUcrZkx3dm05Q1NkWTFLalU0UQ&fmt=jpeg&hei=630&qlt=95&wid=1200",
+    "width": 1200,
+    "height": 630,
+    "bytes": 111309
+  },
+  {
+    "id": 20026,
+    "name": "Xiaomi Watch 5",
+    "file": "20026.jpg",
+    "sourcePage": "https://www.superplanshet.ru/xiaomi/xiaomi-predstavila-flagmanskie-chasy-xiaomi-watch-5",
+    "imageUrl": "https://www.superplanshet.ru/images/Xiaomi_Watch_5_b01144.jpg",
+    "width": 1250,
+    "height": 882,
+    "bytes": 185571
+  },
+  {
+    "id": 20027,
+    "name": "Samsung Galaxy Book6 Ultra",
+    "file": "20027.png",
+    "sourcePage": "https://www.samsung.com/sec/business/notebook/galaxy-book6-ultra-nt961ujh-xr735/NT961UJH-XR735/",
+    "imageUrl": "https://images.samsung.com/kdp/goods/2026/03/13/34fdd4d9-4220-4316-83b6-d486234c44f0.png",
+    "width": 1920,
+    "height": 1280,
+    "bytes": 926317
+  },
+  {
+    "id": 20028,
+    "name": "Xiaomi 17",
+    "file": "20028.png",
+    "sourcePage": "https://www.mi.com/shop/buy?product_id=21931",
+    "imageUrl": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1758612563.2453745.png",
+    "width": 800,
+    "height": 800,
+    "bytes": 128066
+  },
+  {
+    "id": 20029,
+    "name": "HUAWEI Pura 90",
+    "file": "20029.png",
+    "sourcePage": "https://welectronics.com/shop/gsm-phones/huawei-pura-90-5g-kee-al00-white-512gb-12gb-ram-gsm-unlocked-phone-kirin-9010s-50mp-detail",
+    "imageUrl": "https://welectronics.com/images/stories/virtuemart/product/huawei-pura-90-white1.png",
+    "width": 1000,
+    "height": 1000,
+    "bytes": 422352
+  },
+  {
+    "id": 20030,
+    "name": "Dyson R1 Nurovi Dry",
+    "file": "20030.png",
+    "sourcePage": "https://www.dyson.co.uk/vacuum-cleaners/robot/r1-nurovi-dry/light-grey-vinca-blue",
+    "imageUrl": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/specifications/home/floorcare/robots/Web_914_Dynamic_Media_Specifications_MACHINE.png?%24responsive%24=&fmt=png-alpha",
+    "width": 1232,
+    "height": 923,
+    "bytes": 250818
+  },
+  {
+    "id": 20031,
+    "name": "Dyson R2 Nurovi Wash Dry",
+    "file": "20031.jpg",
+    "sourcePage": "https://www.dyson.co.nz/products/vacuum-cleaners/robot/r2-nurovi-wash-dry/reviews",
+    "imageUrl": "https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/home/floorcare/robot/nurovi/r2/rcc/Web_914A_Signposting_banners_Static.jpg?%24responsive%24=&cropPathE=desktop&fit=stretch%2C1&wid=1920",
+    "width": 1920,
+    "height": 823,
+    "bytes": 36642
+  },
+  {
+    "id": 20032,
+    "name": "Dyson V10 Konical",
+    "file": "20032.png",
+    "sourcePage": "https://www.dysoncanada.ca/en/support/vacuum-cleaners/cordless/v10-konical",
+    "imageUrl": "https://www.dysoncanada.ca/content/dam/dyson/images/products/product-selector/photographs/sv55-konical.png?%24responsive%24=&fmt=png-alpha",
+    "width": 800,
+    "height": 1200,
+    "bytes": 240327
+  },
+  {
+    "id": 20033,
+    "name": "DJI Osmo Pocket 4P",
+    "file": "20033.jpg",
+    "sourcePage": "https://www.prnewswire.com/apac/news-releases/osmo-pocket-4p-delivers-pro-filmmaking-capabilities-advancing-the-gimbal-camera-category-dji-pioneered-302813072.html",
+    "imageUrl": "https://mma.prnewswire.com/media/3001594/image1.jpg?p=facebook",
+    "width": 1000,
+    "height": 1000,
+    "bytes": 578676
+  },
+  {
+    "id": 20034,
+    "name": "DJI Osmo 360 II",
+    "file": "20034.jpg",
+    "sourcePage": "https://www.trovaprezzi.it/magazine/tech/dji-annuncia-la-nuova-videocamera-osmo-360-ii",
+    "imageUrl": "https://immagini.trovaprezzi.it/magazine/2026/09/DJI-Osmo-360-II.jpg",
+    "width": 1200,
+    "height": 600,
+    "bytes": 48209
+  },
+  {
+    "id": 20035,
+    "name": "Nike Pegasus 42",
+    "file": "20035.png",
+    "sourcePage": "https://www.nike.com/jp/en/a/pegasus-42-release-date",
+    "imageUrl": "https://static.nike.com/a/images/q_auto%3Aeco/t_product_v1/f_auto/dpr_2.6/h_300%2Cc_limit/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d%2Cc_scale%2Cfl_relative%2Cw_1.0%2Ch_1.0%2Cfl_layer_apply/11552a29-a08e-4019-8501-3eaae4f4a2cf/AIR%2BZOOM%2BPEGASUS%2B42.png",
+    "width": 780,
+    "height": 780,
+    "bytes": 195224
+  },
+  {
+    "id": 20036,
+    "name": "Nike Pegasus Plus 2",
+    "file": "20036.jpg",
+    "sourcePage": "https://www.nike.com/ca/t/pegasus-plus-2-mens-road-running-shoes-kCeBuYtD",
+    "imageUrl": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto%2Cu_9ddf04c7-2a9a-4d76-add1-d15af8f0263d%2Cc_scale%2Cfl_relative%2Cw_1.0%2Ch_1.0%2Cfl_layer_apply/7962ddd1-e892-42b7-adc7-44cbc9906307/NIKE%2BPEGASUS%2BPLUS%2B2.png",
+    "width": 1872,
+    "height": 2340,
+    "bytes": 229078
+  }
+]

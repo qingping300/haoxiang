@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="lighten-green" color-interpolation-filters="sRGB">
+    <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -1 1 -1 0 0" result="green" />
+    <feComponentTransfer in="green" result="green-mask">
+      <feFuncA type="discrete" tableValues="0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" />
+    </feComponentTransfer>
+    <feFlood flood-color="white" flood-opacity="0.32" result="light" />
+    <feComposite in="light" in2="green-mask" operator="in" result="light-green" />
+    <feComposite in="light-green" in2="SourceGraphic" operator="over" />
+  </filter>
+</svg>
