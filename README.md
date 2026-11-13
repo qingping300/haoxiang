@@ -113,7 +113,7 @@ docker compose --env-file .env.infra.local -f compose.infra.yml exec -T mysql sh
 
 ### 限流参数
 
-秒杀资格入口使用单实例 Guava 令牌桶；提交入口依次执行本地令牌桶、用户滑动窗口、全局 Redis 令牌桶和活动 Redis 令牌桶。默认单实例 20 令牌/秒，用户每活动连续 10 秒最多 5 次提交，共享桶每秒补充 20 个令牌、容量 20；这些只是本地联调初始值，不是实测容量。可通过 `haoxiang.stability` 配置项调整，Redis 不可用时秒杀提交返回服务暂不可用。
+秒杀资格入口使用单实例 Guava 令牌桶；提交入口依次执行本地令牌桶、用户滑动窗口、全局 Redis 令牌桶和活动 Redis 令牌桶。默认单实例 20 令牌/秒，用户每活动连续 10 秒最多 5 次提交，共享桶每秒补充 20 个令牌、容量 20；这些只是本地联调初始值，不是实测容量。可通过 `haoxiang.stability` 配置项调整，限流环节无法连接 Redis 时会拒绝放行并返回服务暂不可用；链路其他 Redis 访问点仍沿用现有异常处理。
 ### 已有数据库升级
 
 从旧版本升级时，先备份数据库并停止所有后端写入，再对现有 `haoxiang_mall` 库执行 `backend/sql/migration/V001__add_optimistic_versions.sql`。该脚本仅在版本列不存在时添加列；不要重跑初始化 SQL 覆盖已有数据。新建数据库已在建表脚本中包含版本列。
